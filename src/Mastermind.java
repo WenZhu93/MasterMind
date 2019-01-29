@@ -26,6 +26,7 @@ public class Mastermind {
 		System.out.print(menu());
 		String start = input.next();
 		start = start.toLowerCase();
+		String answer = getAnswer();
 		
 		while(start.equals("yes")) {
 			MastermindModel model = new MastermindModel();
@@ -56,7 +57,7 @@ public class Mastermind {
 				System.out.println("Colors correct but in wrong position: " + statistics2);
 
 				if(count > 10) {
-					System.out.println("You have used all of your ten chances. You loss.");
+					System.out.println("You have used all of your ten chances. The answer is: "+ answer);
 					break;
 				}
 					
@@ -118,6 +119,20 @@ public class Mastermind {
 		menu += "p for purple\n";
 		menu += "Would you like to play? Enter \"yes\" to start: ";
 		return menu;
+	}
+	
+
+	/** This method is to get the answer which the model generates.
+	 * 
+	 * @return The answer of the game.
+	 */
+	private static String getAnswer() {
+		MastermindModel model = new MastermindModel();
+		String answer = "";
+		for(int i = 0; i < 4; i ++) {
+			answer += model.getColorAt(i);
+		}
+		return answer;
 	}
 
 }

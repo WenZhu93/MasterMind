@@ -42,8 +42,6 @@ public class MastermindModel {
      * @param answer A string that represents the four color solution
      */
     public MastermindModel(String answer) {
-    	// TODO Take answer and somehow store it as your answer. Make sure the getColorAt method 
-    	// still works
     	this.answer = answer;
     }
 
