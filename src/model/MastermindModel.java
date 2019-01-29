@@ -1,16 +1,35 @@
 package model;
+import java.util.Random;
 /**
- * 
- * @author YOUR NAME HERE
+ * This method constructs a secrete answer for the game.
+ * @author Wen Zhu
  *
  */
 public class MastermindModel {
 	//private variable(s) to store the answer
-
-	// Only these methods may be public - you may not create any additional 
-	// public methods (and NO public fields)
-    public MastermindModel() { 
-    	// TODO Make the answer  
+	private String answer = "";
+	private int max = 6;
+	private int min = 1;
+	
+    public MastermindModel() {
+    	// generate a string with four random letters.
+    	Random rand = new Random();
+    	for(int i = 0; i < 4; i ++) {
+    		int random = rand.nextInt(max)+min;
+    		if(random == 1) {
+    			answer += "r";
+    		}else if(random == 2) {
+    			answer += "o";
+    		}else if(random == 3) {
+    			answer += "y";
+    		}else if(random == 4) {
+    			answer += "g";
+    		}else if(random == 5) {
+    			answer += "b";
+    		}else if(random == 6) {
+    			answer += "p";
+    		}
+    	}
     }
     
     /**
@@ -25,16 +44,20 @@ public class MastermindModel {
     public MastermindModel(String answer) {
     	// TODO Take answer and somehow store it as your answer. Make sure the getColorAt method 
     	// still works
+    	this.answer = answer;
     }
 
 
+    /**
+     * This method returns the color at specific index in the answer.
+     * 
+     * @param index The position in the answer.
+     * @return
+     */
     public char getColorAt(int index) {
-          /* Return color at position index as a char
-           (first converted if stored as a number) */
-    	
-    	return 'r'; //Just returning something to make sure the code compiles
+    	char colorAt = answer.charAt(index);
+    	return colorAt;
     }
     
-    // Create as many private methods as you like
 
 }
