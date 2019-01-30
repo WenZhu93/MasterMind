@@ -31,6 +31,7 @@ public class Mastermind {
 			MastermindModel model = new MastermindModel();
 			String answer = getAnswer(model);
 			MastermindController controller = new MastermindController(model);
+			
 			while(!win) {
 				System.out.print("Enter guess number "+count+ ": ");
 				count++;
