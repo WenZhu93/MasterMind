@@ -26,10 +26,10 @@ public class Mastermind {
 		System.out.print(menu());
 		String start = input.next();
 		start = start.toLowerCase();
-		String answer = getAnswer();
 		
 		while(start.equals("yes")) {
 			MastermindModel model = new MastermindModel();
+			String answer = getAnswer(model);
 			MastermindController controller = new MastermindController(model);
 			while(!win) {
 				System.out.print("Enter guess number "+count+ ": ");
@@ -126,8 +126,7 @@ public class Mastermind {
 	 * 
 	 * @return The answer of the game.
 	 */
-	private static String getAnswer() {
-		MastermindModel model = new MastermindModel();
+	private static String getAnswer(MastermindModel model) {
 		String answer = "";
 		for(int i = 0; i < 4; i ++) {
 			answer += model.getColorAt(i);
